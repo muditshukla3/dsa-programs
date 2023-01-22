@@ -1,6 +1,8 @@
 package com.ms.medium.arrays;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *  https://leetcode.com/problems/max-chunks-to-make-sorted/
