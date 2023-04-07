@@ -1,4 +1,4 @@
-package com.ms.com.ms.improvements;
+package com.ms.improvements;
 
 public class SwitchExample {
 
