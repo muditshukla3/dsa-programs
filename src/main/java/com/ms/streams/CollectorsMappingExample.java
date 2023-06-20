@@ -25,5 +25,18 @@ public class CollectorsMappingExample {
                 .collect(Collectors.groupingBy(Instructor::getYearsOfExperience,
                         Collectors.mapping(Instructor::getName, Collectors.toList())));
         System.out.println("mapYearOfExpNames = " + mapYearOfExpNames);
+
+        // Instructor with nth highest experience
+        System.out.println(getInstructorWithNthHighestExperience(3, Instructors.getAll()));
+    }
+
+    private static Map.Entry<Integer, List<String>> getInstructorWithNthHighestExperience(int exp,
+                                                                                          List<Instructor> instructors) {
+       return instructors
+                .stream()
+                .collect(
+                        Collectors.groupingBy(Instructor::getYearsOfExperience,
+                Collectors.mapping(Instructor::getName, Collectors.toList())))
+               .entrySet().stream().collect(Collectors.toList()).get(exp-1);
     }
 }
