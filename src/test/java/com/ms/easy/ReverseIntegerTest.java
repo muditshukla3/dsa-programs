@@ -2,22 +2,15 @@ package com.ms.easy;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class ReverseIntegerTest {
 
-    @Test
-    public void test1(){
-        Assertions.assertEquals(321, new ReverseInteger().reverse(123));
-    }
-
-    @Test
-    public void test2(){
-        Assertions.assertEquals(1, new ReverseInteger().reverse(1));
-    }
-
-    @Test
-    public void test3(){
-        Assertions.assertEquals(12345, new ReverseInteger().reverse(54321));
+    @ParameterizedTest
+    @CsvSource({"123,321","1,1","54321,12345"})
+    public void test(String input, String expected){
+        Assertions.assertEquals(Integer.parseInt(expected), new ReverseInteger().reverse(Integer.parseInt(input)));
     }
 
 }

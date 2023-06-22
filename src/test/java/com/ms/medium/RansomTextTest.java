@@ -2,27 +2,22 @@ package com.ms.medium;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class RansomTextTest {
 
 
-    @Test
-    public void test1(){
-        Assertions.assertFalse(RansomText.canRansomTextConstruct("a","b"));
+    @ParameterizedTest
+    @CsvSource({"a,b","aa,ab"})
+    public void cannotConstruct(String ransomText, String magazineText){
+        Assertions.assertFalse(RansomText.canRansomTextConstruct(ransomText,magazineText));
+    }
+    @ParameterizedTest
+    @CsvSource({"ba,aba","aaa,aabab"})
+    public void canConstruct(String ransomText, String magazineText){
+        Assertions.assertTrue(RansomText.canRansomTextConstruct(ransomText,magazineText));
     }
 
-    @Test
-    public void test2(){
-        Assertions.assertFalse(RansomText.canRansomTextConstruct("aa","ab"));
-    }
-
-    @Test
-    public void test3(){
-        Assertions.assertTrue(RansomText.canRansomTextConstruct("ba","aba"));
-    }
-
-    @Test
-    public void test4(){
-        Assertions.assertTrue(RansomText.canRansomTextConstruct("aaa","aabab"));
-    }
 }

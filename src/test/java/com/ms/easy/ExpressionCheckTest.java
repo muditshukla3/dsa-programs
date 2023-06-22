@@ -2,36 +2,22 @@ package com.ms.easy;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class ExpressionCheckTest {
 
-    @Test
-    public void test1(){
-        Assertions.assertTrue(ExpressionCheck.checkExpression("{{}}"));
+    @ParameterizedTest
+    @ValueSource(strings = {"{{}}", "({[]})", "()[]{}"})
+    public void validExpression(String expression){
+        Assertions.assertTrue(ExpressionCheck.checkExpression(expression));
     }
 
-    @Test
-    public void test2(){
-        Assertions.assertTrue(ExpressionCheck.checkExpression("({[]})"));
+    @ParameterizedTest
+    @ValueSource(strings = {"{{]}", "{{])", "(]"})
+    public void invalidExpression(String expression){
+        Assertions.assertFalse(ExpressionCheck.checkExpression(expression));
     }
 
-    @Test
-    public void test3(){
-        Assertions.assertFalse(ExpressionCheck.checkExpression("{{]}"));
-    }
 
-    @Test
-    public void test4(){
-        Assertions.assertFalse(ExpressionCheck.checkExpression("{{])"));
-    }
-
-    @Test
-    public void test5(){
-        Assertions.assertFalse(ExpressionCheck.checkExpression("(]"));
-    }
-
-    @Test
-    public void test6(){
-        Assertions.assertTrue(ExpressionCheck.checkExpression("()[]{}"));
-    }
 }

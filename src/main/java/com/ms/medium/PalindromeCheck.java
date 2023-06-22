@@ -8,9 +8,9 @@ import java.util.List;
  * Hint- A set of characters can form a palindrome if at most one character
  * occurs an odd number of times and all characters occur an even number of times.
  */
-public class PalindromCheck {
+public class PalindromeCheck {
 
-    public static boolean canFormPalindrom(String str){
+    public static boolean canFormPalindrome(String str){
 
         List<Character> charList = new ArrayList<>();
 
@@ -36,7 +36,7 @@ public class PalindromCheck {
 
     public static void main(String[] args) {
 
-        if(canFormPalindrom("ab")){
+        if(canFormPalindrome("ab")){
             System.out.println("Yes");
         }else{
             System.out.println("No");
