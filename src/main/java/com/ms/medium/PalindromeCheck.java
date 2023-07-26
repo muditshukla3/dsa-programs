@@ -19,7 +19,7 @@ public class PalindromeCheck {
             if(charList.contains(c)){
                 charList.remove((Character) c);
             }else{
-                charList.add((Character)c);
+                charList.add(c);
             }
         }
 

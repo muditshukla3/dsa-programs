@@ -17,8 +17,8 @@ String:
 1. Reverse String
 2. Valid Anagram
 3. Longest Palindromic Substring
-4. Group Anagrams
-5. Valid Parentheses
+4. [Group Anagrams](src/main/java/com/ms/medium/GroupAnagrams.java)
+5. [Valid Parentheses](src/main/java/com/ms/easy/ExpressionCheck.java)
 6. Longest Common Prefix
 7. String to Integer (atoi)
 8. Palindrome Permutation
@@ -53,7 +53,7 @@ Dynamic Programming:
 1. Climbing Stairs
 2. Coin Change
 3. Longest Increasing Subsequence
-4. Maximum Subarray
+4. [Maximum Subarray](src/main/java/com/ms/medium/MaximumSubArraySum.java)
 5. Unique Paths
 6. Edit Distance
 7. House Robber
