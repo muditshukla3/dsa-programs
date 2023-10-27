@@ -1,5 +1,8 @@
 package com.ms.hard.arrays;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 /**
  * A newspaper vendor wants to employ delivery boys. There are N houses in the locality arranged in one dimensional
  * lanes present at 1,2,3...N. There are M delivery boys. The ith delivery boy can deliver to house from ai to bi.
@@ -15,7 +18,39 @@ package com.ms.hard.arrays;
  */
 public class MinimumDeliveryBoys {
 
-    public int minimumBoysNeeded(int noOfHouse, int noOfBoys, int[][] range){
+    public static int minDeliveryBoys(int noOfHouses, int noOfBoys, int[][] ranges) {
+        // Sort the delivery ranges by their starting point
+        Arrays.sort(ranges, (a, b) -> Integer.compare(a[0], b[0]));
+
+        // Initialize variables
+        int boysNeeded = 0;
+        int maxRangeCovered = 0;
+
+        int i = 0;
+        while (i < noOfBoys) {
+            // Find the maximum range that can be covered by the current delivery boy
+            int maxRange = -1;
+
+            while (i < noOfBoys && ranges[i][0] <= maxRangeCovered + 1) {
+                maxRange = Math.max(maxRange, ranges[i][1]);
+                i++;
+            }
+
+            if (maxRange == -1) {
+                // There is a gap in the houses that cannot be covered
+                return -1;
+            }
+
+            maxRangeCovered = maxRange;
+            boysNeeded++;
+
+            if (maxRangeCovered >= noOfHouses) {
+                // All houses are covered
+                return boysNeeded;
+            }
+        }
+
+        // If we haven't covered all houses, return -1
         return -1;
     }
 }
