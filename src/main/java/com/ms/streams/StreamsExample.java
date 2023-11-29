@@ -2,13 +2,19 @@ package com.ms.streams;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 public class StreamsExample {
 
     static List<Integer> numbers  = Arrays.asList(2,4,7,3,6,8);
     static List<String> strings = Arrays.asList("aat","bat","art","sat","cat");
 
+    static String str = "madam";
     public static void main(String[] args) {
 
         //find the sum of even numbers using streams
@@ -25,5 +31,11 @@ public class StreamsExample {
 
         //concat all the strings into single comma separated string
         System.out.println(strings.stream().collect(Collectors.joining(",")));
+
+        //find the frequency of each character
+        Map<String, Long> collect = Arrays.stream(str.split(""))
+                .collect(groupingBy(Function.identity(), counting()));
+        System.out.println("collect = " + collect);
+        
     }
 }
