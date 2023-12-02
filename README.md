@@ -11,7 +11,7 @@ Array:
 7. Rotate Array
 8. Combination Sum
 9. [Missing Number](src/main/java/com/ms/easy/MissingNumber.java)
-10. Find All Numbers Disappeared in an Array
+10. [Find All Numbers Disappeared in an Array](src/main/java/com/ms/easy/DisappearedNumbers.java)
 
 String:
 1. Reverse String
