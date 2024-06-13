@@ -9,14 +9,14 @@ public class GroupAnagrams {
     public static Set<Set<String>> groupAnagrams(List<String> words){
         Set<Set<String>> anagrams = new HashSet<>();
 
-        if(words.size()==0){
+        if(words.isEmpty()){
             return anagrams;
         }
 
         // sort each word
         List<String> list = words.stream()
                 .map(s -> Stream.of(s.split("")).sorted()
-                        .collect(Collectors.joining())).collect(Collectors.toList());
+                        .collect(Collectors.joining())).toList();
 
         // construct a map where key is word and value
         // is list of indices where it's present
@@ -31,7 +31,7 @@ public class GroupAnagrams {
                                         .stream()
                                         .map(words::get)
                                         .collect(Collectors.toSet());
-            if(collection.size()>0){
+            if(!collection.isEmpty()){
                 anagrams.add(collection);
             }
         }
