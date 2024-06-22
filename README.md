@@ -120,3 +120,6 @@ Greedy:
 8. Queue Reconstruction by Height
 9. Gas Station
 10. Meeting Rooms 
+
+Misc:
+1. [LRU Cache](src/main/java/com/ms/medium/LRUCache.java) 
