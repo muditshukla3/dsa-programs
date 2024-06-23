@@ -5,8 +5,8 @@ Array:
 1. [Two Sum](src/main/java/com/ms/easy/TwoSum.java)
 2. Container With Most Water
 3. [Best Time to Buy and Sell Stock](src/main/java/com/ms/easy/BuySellStock.java)
-4. Product of Array Except Self
-5. Maximum Subarray
+4. [Product of Array Except Self](src/main/java/com/ms/easy/ArrayProductExceptSelf.java)
+5. Maximum Sub-array
 6. Merge Intervals
 7. Rotate Array
 8. Combination Sum
