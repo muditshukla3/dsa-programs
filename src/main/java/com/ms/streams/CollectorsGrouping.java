@@ -33,7 +33,7 @@ public class CollectorsGrouping {
         //and only return those name which has e in it
         Map<Integer, List<String>> instructorsNamesByLengthAndEChar = Instructors.getAll().stream()
                 .map(Instructor::getName)
-                .collect(Collectors.toList())
+                .toList()
                 .stream().collect(Collectors.groupingBy(String::length,
                         Collectors.filtering(s -> s.contains("e"),
                                 Collectors.toList())));

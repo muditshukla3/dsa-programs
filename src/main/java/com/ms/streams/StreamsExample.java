@@ -19,6 +19,7 @@ public class StreamsExample {
 
     static List<String> names = Arrays.asList("Mudit Shukla", "Nitika Arora", "Mukesh Arora", "Akanksha Joshi");
 
+    static String alphaNumeric = "ab3c41f2d";
     static String str = "madam";
     public static void main(String[] args) {
 
@@ -56,5 +57,12 @@ public class StreamsExample {
         Map<String, Long> lastNames = names.stream().map(str -> str.split(" ")[1])
                                         .collect(groupingBy(s -> s, counting()));
         System.out.println("lastNames = " + lastNames);
+
+        //find out minimum number from alphaNumeric String
+        Integer min = Arrays.stream(alphaNumeric.split(""))
+                .filter(s -> Character.isDigit(s.charAt(0)))
+                .map(Integer::valueOf)
+                .min(Integer::compare).orElseThrow();
+        System.out.println("min = " + min);
     }
 }
